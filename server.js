@@ -20,7 +20,8 @@ app.use(express.json())
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
-mongoose.connect('mongodb://localhost/newYorkerScraper', {useNewUrlParser: true})
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/newYorkerScraper'
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true})
 
 app.use('/', routes)
 
