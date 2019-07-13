@@ -1,5 +1,8 @@
 {
   "name": "NewYorkerMagScraper",
+  "engines": {
+    "node": "12.4.0"
+  },
   "version": "1.0.0",
   "main": "server.js",
   "repository": "https://github.com/androosk/NewYorkerMagScraper.git",
