@@ -1,0 +1,26 @@
+.jumbotron{
+	background-image: url('https://cdn.pixabay.com/photo/2014/05/02/23/46/new-york-city-336475_960_720.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+} 
+body{
+	background-image: url('https://cdn.pixabay.com/photo/2016/02/11/01/53/wall-paper-1193001_960_720.jpg');
+	background-size: auto;
+	background-repeat: repeat;
+}
+.headline{
+	font-family: 'Cinzel', serif;
+	font-size: 64px;
+	color: antiquewhite;
+	margin-top: 40px;
+}
+.subline{
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 30px;
+	color: antiquewhite;
+	margin-bottom: 40px;
+}
+.link-font{
+	font-size: 25px;
+	color: antiquewhite;
+}

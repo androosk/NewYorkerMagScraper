@@ -1,0 +1,33 @@
+<div id="logincontent" class="card signup-container">
+  <div id="login-error" class="row"></div>
+  <div class="row">
+    <div class="col-md-12 col-md-offset-3">
+        {{#if failureMessage}}
+      <div class="error-message">
+        <p>pookie</p>
+          {{this.message}}
+      </div>
+        {{/if}}
+      <h4 class="h2 mb-4 text-center"><i class="fas fa-user"></i> Login</h4>
+      <form class="login" action="login" method="post">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="md-form mb-0">
+              <input type="text" id="username" name="username" class="form-control">
+              <label for="username" class=""><i class="far fa-envelope"></i> Username</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="md-form mb-0">
+              <input type="password" id="password" name="password" class="form-control">
+              <label for="password" class=""><i class="fas fa-lock"></i> Password</label>
+            </div>
+          </div>
+        </div>
+        <button id="signinbtn" class="btn pull-right" type="submit">Sign in <i class="fas fa-sign-in-alt"></i></button>
+      </form>
+      <p class="text-dark text-center">Don't have an account? Sign up <a href="/user/register">here</p></div>
+    </div>
+  </div>
+</div>
+{{!-- <script type="text/javascript" src="../assets/js/signup.js"></script> --}}

@@ -1,0 +1,55 @@
+#signupcontent {
+  padding: 10px;
+  margin: auto;
+  margin-top: 40px;
+  max-width: 480px;
+}
+
+#signupbtn {
+  background-color: blue;
+  color: white;
+}
+
+#message {
+  display: none;
+  background:transparent;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+#message li {
+  font-size: 18px;
+  list-style-type: none;
+}
+.valid {
+  color: green;
+}
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+.error-message {
+  text-align: center;
+  color: red;
+  background: white;
+  border: 1px solid red;
+  margin-bottom: 10px;
+}
+.success-message {
+  text-align: center;
+  color: green;
+  background: white;
+  border: 1px solid green;
+  margin-bottom: 10px;
+}
