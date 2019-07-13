@@ -1,0 +1,11 @@
+#logincontent {
+  padding: 10px;
+  margin: auto;
+  margin-top: 40px;
+  max-width: 480px;
+}
+
+#signinbtn {
+  background-color: blue;
+  color: white;
+}

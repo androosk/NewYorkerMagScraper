@@ -1,0 +1,70 @@
+
+
+
+<div id="signupcontent" class="card signup-container">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-3">
+        {{#each errors}}
+          <div class="error-message">
+            <p>{{this.msg}}</p>
+          </div>
+        {{/each}}  
+        <h2 class="h2 mb-4 text-center"><i class="fas fa-user-plus"></i> Create a New Account</h2>
+      <form class="signup" action="register"  method="post">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="md-form mb-0">
+              <input type="text" id="name" name="name" class="form-control">
+              <label for="name" class=""><i class="fas fa-file-signature"></i> Name</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="md-form mb-0">
+              <input type="text" id="email" name="email" class="form-control">
+              <label for="email" class=""><i class="far fa-envelope"></i> Email</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="md-form mb-0">
+              <input type="text" id="username" name="username" class="form-control">
+              <label for="username" class=""><i class="far fa-address-card"></i> Username</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="md-form mb-0">
+              <input type="password" id="password" name="password" class="form-control">
+                {{!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                required> --}}
+              <label for="password" class=""><i class="fas fa-lock"></i> Password</label>
+            </div>
+          </div>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+          <div class="col-md-12">
+            <div class="md-form mb-0">
+              <input type="password" id="password2" name="password2" class="form-control">
+              <label for="password2" class=""><i class="fas fa-lock"></i> Confirm Password</label>
+            </div>
+          </div>
+        </div>
+        <button id="signupbtn" class="btn btn-sucess pull-right" type="submit">Sign Up <i class="fas fa-sign-in-alt"></i></button>
+      </form>
+
+      <p class="text-center text-dark">Already have an account? Login <a href="/user/login">here</a></p>
+
+      {{!-- <div id="message">
+        <h4 class="text-center"><u>Password must contain the following:</u></h4>
+        <ul>
+        <li id="letter" class="invalid">A <b>lowercase</b> letter</li>
+        <li id="capital" class="invalid">A <b>capital (uppercase)</b> letter</li>
+        <li id="number" class="invalid">A <b>number</b></li>
+        <li id="length" class="invalid">Minimum <b>8 characters</b></li>
+        </ul>
+      </div> --}}
+    </div>
+  </div>
+</div>
+{{!-- <script type="text/javascript" src="../assets/js/signup.js"></script> --}}

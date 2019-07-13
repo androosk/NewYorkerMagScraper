@@ -3,16 +3,14 @@
 {{> jumbotron}}
 
 <div class="container">
-  {{#each articles}}
+  {{#each mystuff}}
     <div class="card mb-3 shadow p-3 mb-5 bg-info rounded">
       <div class="card-body">
         <p class="link-font">{{this.title}}</p>
           <a class="btn btn-success" href="{{this.link}}" target="_blank" role="button">view article</a>
-          <button id="searchbutton" class="btn btn-primary" type="button" article-name="{{this.title}}" link-name="{{this.link}}">Save Article</button>
+          <a class="btn btn-warning" href="/note" role="button">Make a note here</a>
+          <a class="btn btn-danger" href="/delete" role="button">remove article</a>
       </div>
     </div>
   {{/each}}  
 </div>
-
-<script type="text/javascript" src="../assets/js/mystuff.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
