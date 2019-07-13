@@ -24,7 +24,7 @@ router.get('/', (req,res) => {
 
 router.get('/scrape', (req,res,html) => {
   puppeteer
-    .launch({ args: ['--no-sandbox'] })
+    .launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
     .then(function(browser){
       return browser.newPage()
     })
