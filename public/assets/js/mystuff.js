@@ -1,16 +1,32 @@
-
-$(document).on('click', "#searchbutton", function(){
-  var thisTitle = $(this).attr("article-name")
-  var thisId = $(this).attr("link-name")
-  var userId = $("#loggedin").attr("data")
+$(".save-button").click(function(){
+  let thisId = $(this).attr("link-name")
+  let userId = $("#loggedin").attr("data")
   if(!userId){
     window.location.replace('/error')
   } else {
-    axios({
-      method: "POST",
-      url: "/save/" + thisId
-    }).then(function(data){
-      console.log(data)
+    $.ajax({
+      method: "PUT",
+      url: "/save/" + thisId,
+      data: {
+        favorited: userId
+      }
     })
+  window.location.replace("/")
+  }
+})
+$(".delete-this").click(function(){
+  let thisId = $(this).attr("link-name")
+  let userId = $("#loggedin").attr("data")
+  if(!userId){
+    window.location.replace('/error')
+  } else {
+    $.ajax({
+      method: "DELETE",
+      url: "/delete/" + thisId,
+      data: {
+        favorited: userId
+      }
+    })
+  window.location.replace('/mystuff')
   }
 })

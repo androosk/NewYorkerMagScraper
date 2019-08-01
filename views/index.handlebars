@@ -8,7 +8,7 @@
       <div class="card-body">
         <p class="link-font">{{this.title}}</p>
           <a class="btn btn-success" href="{{this.link}}" target="_blank" role="button">view article</a>
-          <button id="searchbutton" class="btn btn-primary" type="button" article-name="{{this.title}}" link-name="{{this.link}}">Save Article</button>
+          <button class="btn btn-primary save-button" role="button" article-name="{{this.title}}" link-name="{{this.id}}">{{this.favorite}}</button>
       </div>
     </div>
   {{/each}}  

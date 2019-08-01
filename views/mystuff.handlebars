@@ -7,10 +7,14 @@
     <div class="card mb-3 shadow p-3 mb-5 bg-info rounded">
       <div class="card-body">
         <p class="link-font">{{this.title}}</p>
+        <p>{{this.arComment}}</p>
           <a class="btn btn-success" href="{{this.link}}" target="_blank" role="button">view article</a>
-          <a class="btn btn-warning" href="/note" role="button">Make a note here</a>
-          <a class="btn btn-danger" href="/delete" role="button">remove article</a>
+          <a class="btn btn-warning" href="/single/{{this.id}}" role="button">Make a note here</a>
+         {{!-- <a class="btn btn-danger delete-this" href="/delete" role="button">remove article</a> --}}
+          <button class="btn btn-danger delete-this" role="button" link-name="{{this.id}}">remove article</button>
       </div>
     </div>
   {{/each}}  
 </div>
+
+<script type="text/javascript" src="../assets/js/mystuff.js"></script>

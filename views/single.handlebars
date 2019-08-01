@@ -1,0 +1,22 @@
+
+{{> navbar }}
+{{> jumbotron}}
+
+<div class="container">
+    <div class="card mb-3 shadow p-3 mb-5 bg-info rounded">
+      <div class="card-body">
+        <p class="link-font">{{Article.title}}</p>
+        <form action="/submitcomment/{{Article.id}}" method="post">
+          <div class="form-group row">
+            <label for="comment" class="col-sm-2 col-form-label">Comment:</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" name="comment" id="comments" rows="3"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-success save-comment pull-right" type="submit">save comment</button>
+        </form>
+
+          <a class="btn btn-warning pull-right" href="{{Article.link}}" target="_blank" role="button">view article</a>
+      </div>
+    </div>
+</div>

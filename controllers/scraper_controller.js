@@ -7,18 +7,28 @@ const db = require("../models")
 
 const url = "https://www.newyorker.com"
 
-// router.get('/mystuff', function(req, res){
-//   res.render('mystuff')
-// })
-
 router.get('/', (req,res) => {
   db.Article.find({})
     .then(function(dbArticle) {
+      if(req.user !== undefined){
+        const finder = req.user.id
+        for(i=0;i<dbArticle.length;i++){
+          if (dbArticle[i].favorited.includes(finder)) {
+            dbArticle[i]["favorite"] = ["saved"]
+          } else {
+            dbArticle[i]["favorite"] = ["save article"]
+          }
+        }
+      } else {
+        for(i=0;i<dbArticle.length;i++){
+          dbArticle[i]["favorite"] = ["save article"]
+        }
+      }
       console.log("displaying articles")
       res.render('index', { articles: dbArticle });
     })
     .catch(function(err) {
-      res.json(err);
+      console.log(err);
     });
 })
 
@@ -58,40 +68,41 @@ router.get('/mystuff', function(req, res){
   if(!req.user){
     res.redirect('/')
   } else {
-    console.log(req.user.id)
-    console.log('nothing to see here')
-    db.Mystuff.countDocuments(function(err, count){
-      if( count === 0){
+    console.log("Hitting the mystuff route")
+    const finder = req.user.id
+    db.Article.find({ favorited: { $all: [finder]} })
+    .then(function(dbArticle) {
+      if(!dbArticle.length) {
         console.log("no records found")
         res.render('errorhandler', { thisstuff: {
           text: "Nothing here. Go back and save some articles!",
           link: "/",
           buttontext: "View Articles"
-        } })
-       } else {
-        console.log("Found Records: ", count)
-        db.Mystuff.find({ user: req.user.id })
-        .populate('username')
-        .then(function(err, dbArticle) {
-          console.log("displaying articles")
-          console.log(dbArticle)
-          // res.render('mystuff', { mystuff: dbArticle })
-        })
-        .catch(function(err) {
-          console.log(err)
-        });
+      }}) } else {
+        for(let i=0;i<dbArticle.length;i++) {
+          if(dbArticle[i].comment){
+            db.Comment.findById(dbArticle[i].comment)
+              .then(function(dbComment) {
+                 dbArticle[i]["arComment"] = dbComment.comment
+              })
+          }
+        }
+        console.log("displaying articles")
+        res.render('mystuff', { mystuff: dbArticle })
       }
     })
+    .catch(function(err) {
+      console.log(err)
+    });
   }
 })
-router.post('/save/:id', function(req,res,next){
+router.put('/save/:id', function(req,res,next){
   let result = {}
   result = {
-    article: req.params.id,
-    user: req.user.id
+    _id: req.params.id,
+    favorited: req.user.id
     }
-    console.log(result.article, result.user)
-    db.Mystuff.create(result)
+    db.Article.findByIdAndUpdate(result._id, { $push: {favorited: result.favorited}})
     .then(function(){
       console.log("article added to favorites")
       res.redirect("/")
@@ -104,8 +115,35 @@ router.get('/error', function(req,res){
     link: "/user/login",
     buttontext: "Go To Login/Join"
   } })
-  console.log("should've hit it")
 })
-
+router.delete('/delete/:id', function(req, res, next){
+  let result = {}
+  result = {
+    _id: req.params.id,
+    favorited: req.user.id
+  }
+  db.Article.findByIdAndUpdate(result._id, { $pullAll: {favorited: [result.favorited]}})
+    .then(function(){
+      console.log("article deleted from favorites")
+      next()
+    })
+})
+router.get('/single/:id', function(req,res){
+  db.Article.find({ _id: req.params.id })
+    .then(function(dbArticle){
+      res.render("single", {
+        Article: dbArticle[0]
+    }) 
+  })
+})
+router.post("/submitcomment/:id", function(req, res) {
+  db.Comment.create(req.body)
+    .then(function(dbComment) {
+      return db.Article.findOneAndUpdate({ _id: req.params.id }, { comment: dbComment._id }, { new: true })
+    .then(function(dbArticle){
+      res.redirect("/mystuff") 
+    })
+  })
+})
 
 module.exports = router

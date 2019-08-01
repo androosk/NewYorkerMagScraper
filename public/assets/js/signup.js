@@ -1,56 +1,5 @@
 $(document).ready(function() {
-  // Getting references to our form and input
-  // var signUpForm = $("form.signup");
-  // var usernameInput = $("input#username");
-  // var passwordInput = $("input#password");
-  // var emailInput = $("input#email")
-
-
-  // When the signup button is clicked, we validate the email and password are not blank
-  // signUpForm.on("submit", function(event) {
-  //   event.preventDefault();
-  //   var userData = {
-  //     name: nameInput.val().trim(),
-  //     email: emailInput.val().trim(),
-  //     username: usernameInput.val().trim(),
-  //     password: passwordInput.val().trim(),
-  //     password2: passwordInput.val().trim()
-  //   };
-
-    // if (!userData.username || !userData.password || !userData.password2 || !userData.email) {
-    //   return;
-    // }
-    // If we have an email and password, run the signUpUser function
-  //   signUpUser(userData.name, userData.email, userData.username, userData.password);
-  //   nameInput.val("")
-  //   emailInput.val("")
-  //   usernameInput.val("");
-  //   passwordInput.val("");
-  //   password2Input.val("")
-  // });
-
-  // Does a post to the signup route. If successful, we are redirected to the members page
-  // Otherwise we log any errors
-  // function signUpUser(username, password) {
-  //   $.post("/api/signup", {
-  //     username: username,
-  //     password: password
-  //   })
-  //     .then(location => {
-  //       console.log(location);
-  //       console.log("trying to reload the page to /login");
-  //       window.location.replace(location);
-        // location.replace(location);
-  //     })
-  //     .catch(handleLoginErr);
-  // }
-
-  // function handleLoginErr(err) {
-  //   console.log(err);
-  //   $("#alert .msg").text(err.responseJSON);
-  //   $("#alert").fadeIn(500);
-  // }
-
+  
   var myInput = document.getElementById("password");
   var letter = document.getElementById("letter");
   var capital = document.getElementById("capital");

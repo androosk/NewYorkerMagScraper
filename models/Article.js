@@ -14,6 +14,14 @@ const ArticleSchema = new Schema({
   link: {
     type: String,
     required: true,
+  },
+  favorited: {
+    type: Array,
+    default: []
+  },
+  comment: {
+    type: Schema.Types.ObjectId,
+    ref: "Comment"
   }
 })
 

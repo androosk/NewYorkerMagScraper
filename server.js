@@ -7,7 +7,6 @@ const passport = require('passport')
 const config = require('./config/database')
 const routes = require('./controllers/scraper_controller')
 const users = require("./controllers/users")
-const axios = require('axios')
 
 const PORT = process.env.PORT || 3001
 const app = express()
@@ -42,16 +41,20 @@ app.use(passport.session())
 
 app.get('*', function(req,res,next){
   res.locals.user = req.user || null
-  console.log(res.locals.user)
   next()
 })
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
-mongoose.connect(process.env.MONGODB_URI || config.database, {useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URI || config.database, {useNewUrlParser: true, useFindAndModify: false})
 
 app.use('/', routes)
+app.use('/save', routes)
+app.use('/mystuff', routes)
+app.use('/delete', routes)
+app.use('/single', routes)
+app.use('/submitcomment', routes)
 app.use('/user', users)
 
 app.listen(PORT, ()=> {
