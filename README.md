@@ -1,6 +1,6 @@
 # The New Yorker Magazine Aggregator
 ![Screenshot](screenshot.png)
-Keep track of your favorite The New Yorker Magazine articles in one place with this full stack web application. Users can create a secure user account, login, logout, save favorite articles to their personal page, make notes on saved articles, edit and delete notes and articles. Articles are stored in a REST api running on a mongo database instance. This app has full CRUD funcitonality.
+Keep track of your favorite The New Yorker Magazine articles in one place with this full stack web application. Users can create a secure user account, login, logout, save favorite articles to their personal page, make notes on saved articles, edit and delete notes and articles. Articles are stored in a REST api running on a mongo database instance. This app has full CRUD functionality.
 
 ## Getting Started
 ### Prerequisites
