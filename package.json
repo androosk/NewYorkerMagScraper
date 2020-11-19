@@ -20,9 +20,12 @@
     "express-validator": "5.3.1",
     "handlebars-helpers": "^0.10.0",
     "mongoose": "^5.6.1",
+    "nodemon": "^2.0.2",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "puppeteer": "^1.18.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "handlebars": "^4.5.0"
+  }
 }
