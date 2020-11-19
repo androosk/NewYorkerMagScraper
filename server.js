@@ -47,7 +47,7 @@ app.get('*', function(req,res,next){
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
-mongoose.connect(process.env.MONGODB_URI || config.database, {useNewUrlParser: true, useFindAndModify: false})
+mongoose.connect(process.env.MONGODB_URI || config.database, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false})
 
 app.use('/', routes)
 app.use('/save', routes)
