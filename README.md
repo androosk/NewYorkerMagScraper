@@ -44,4 +44,4 @@ $ npm run server
 
 ## Deployment Link :link:
 This app is deployed to Heroku at
-https://young-mesa-27882.herokuapp.com/
+https://newyorkerscraper.herokuapp.com/
