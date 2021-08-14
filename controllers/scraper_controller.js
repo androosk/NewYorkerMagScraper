@@ -49,7 +49,8 @@ router.get('/scrape', (req,res,html) => {
       $('a h3').each(function() {
         result = {}
         result.title = $(this).text()
-        result.link = url + $(this).parent('a').attr("href")
+        result.link = $(this).parent('a').attr("href")
+        console.log(result)
         db.Article.create(result)
           .then(function(){
             console.log("article added to database")
